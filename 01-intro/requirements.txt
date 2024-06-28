@@ -1,0 +1,6 @@
+elasticsearch
+ollama
+scikit-learn
+pandas
+numpy
+tqdm
