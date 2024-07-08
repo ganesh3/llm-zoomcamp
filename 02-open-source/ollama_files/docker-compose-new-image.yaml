@@ -1,0 +1,11 @@
+# Stage 1: Build stage
+FROM ollama/ollama as builder
+
+# Copy the weights into a temporary directory in the builder stage
+COPY ./ollama_files/models /tmp/models
+
+# Stage 2: Final stage
+FROM ollama/ollama
+
+# Copy the weights from the builder stage into the final image
+COPY --from=builder /tmp/models /root/.ollama/models
